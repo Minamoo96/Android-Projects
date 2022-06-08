@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginVertical="8dp">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="10dp"
+                android:foreground="@drawable/vector"
+                android:foregroundGravity="center" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mPharmacyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pharmacy Name"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mPharmacyAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Pharmacy Address"
+                    android:textColor="@color/purple_700"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/mPharmacySerial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Serial Number"
+                    android:textColor="@color/purple_700"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_marginVertical="3dp"
+                    android:id="@+id/updatePharmacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:background="@drawable/button_style"
+                    android:text="Update"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_marginVertical="3dp"
+                    android:id="@+id/deletePharmacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:background="@drawable/button_style"
+                    android:text="Delete"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

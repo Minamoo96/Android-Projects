@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/view_down_style"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginTop="18dp"
+        android:id="@+id/adminUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin: "
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/users"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="40dp"
+        android:foreground="@drawable/vector1"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Users"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/users"
+        app:layout_constraintStart_toStartOf="@+id/users"
+        app:layout_constraintTop_toBottomOf="@+id/users" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pharmacies"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
+        android:foreground="@drawable/vector"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pharmacies"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/pharmacies"
+        app:layout_constraintStart_toStartOf="@+id/pharmacies"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacies" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/medicines"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="280dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/vector2"
+        android:foregroundGravity="center"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medicines"
+        android:textColor="@color/purple_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/medicines"
+        app:layout_constraintStart_toStartOf="@+id/medicines"
+        app:layout_constraintTop_toBottomOf="@+id/medicines" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

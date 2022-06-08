@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginVertical="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_marginStart="20dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/vector2"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:id="@+id/mName"
+                    android:text="Name Here"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/mPharmacy"
+                    android:text="Pharmacy Here"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_700"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/mAddress"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address Here"
+                    android:textColor="@color/purple_700"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/mPrice"
+                    android:text="Price Here"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginStart="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/updateMedicine"
+                    android:layout_marginVertical="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:text="Update"
+                    android:background="@drawable/button_style"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deleteMedicine"
+                    android:layout_marginVertical="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:text="Delete"
+                    android:background="@drawable/button_style"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
