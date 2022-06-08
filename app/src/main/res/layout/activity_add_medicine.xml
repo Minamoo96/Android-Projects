@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdatePharmacyActivity">
+    tools:context=".AddMedicineActivity">
 
     <View
-        android:id="@+id/view14"
+        android:id="@+id/view10"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/view_down_style"
@@ -18,17 +18,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="Admin: "
         android:textColor="@color/purple_700"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/view14"
-        app:layout_constraintStart_toStartOf="@+id/view14"
-        app:layout_constraintTop_toTopOf="@+id/view14" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view10" />
 
     <View
-        android:id="@+id/view20"
+        android:id="@+id/view11"
         android:layout_width="match_parent"
         android:layout_height="540dp"
         android:background="@drawable/view_up_style"
@@ -40,10 +40,10 @@
         android:layout_width="320dp"
         android:layout_height="500dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view20"
-        app:layout_constraintEnd_toEndOf="@+id/view20"
-        app:layout_constraintStart_toStartOf="@+id/view20"
-        app:layout_constraintTop_toTopOf="@+id/view20" >
+        app:layout_constraintBottom_toBottomOf="@+id/view11"
+        app:layout_constraintEnd_toEndOf="@+id/view11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view11" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,13 +62,26 @@
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/vector"
+                        android:src="@drawable/vector2"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"/>
 
                     <EditText
-                        android:id="@+id/ppName"
+                        android:id="@+id/medName"
                         android:layout_marginTop="18dp"
+                        android:layout_width="290dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/purple_700"
+                        android:textColorHint="@color/hint"
+                        android:textSize="16sp"
+                        android:background="@drawable/edit_text_style_new"
+                        android:hint="Medicine Name"
+                        android:padding="10dp"/>
+
+                    <EditText
+                        android:id="@+id/phName"
+                        android:layout_marginTop="10dp"
                         android:layout_width="290dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
@@ -79,48 +92,53 @@
                         android:hint="Pharmacy Name"
                         android:padding="10dp"/>
 
-                    <TextView
-                        android:id="@+id/ppAddress"
+                    <EditText
+                        android:id="@+id/medPrice"
                         android:layout_marginTop="10dp"
                         android:layout_width="290dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:textColor="@color/purple_700"
+                        android:textColorHint="@color/hint"
                         android:textSize="16sp"
                         android:background="@drawable/edit_text_style_new"
+                        android:hint="Medicine Price"
                         android:padding="10dp"/>
 
-                    <TextView
-                        android:id="@+id/ppNumber"
+                    <EditText
+                        android:id="@+id/phAddress"
                         android:layout_marginTop="10dp"
                         android:layout_width="290dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:textColor="@color/purple_700"
+                        android:textColorHint="@color/hint"
                         android:textSize="16sp"
                         android:background="@drawable/edit_text_style_new"
+                        android:hint="Pharmacy Address"
                         android:padding="10dp"/>
 
-
-                    <TextView
-                        android:id="@+id/ppSerial"
+                    <EditText
+                        android:id="@+id/medSerial"
                         android:layout_marginTop="10dp"
                         android:layout_width="290dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:textColor="@color/purple_700"
+                        android:textColorHint="@color/hint"
                         android:textSize="16sp"
                         android:background="@drawable/edit_text_style_new"
+                        android:hint="Serial Numer"
                         android:padding="10dp"/>
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/savePharmacy"
+                        android:id="@+id/saveMedicine"
                         android:layout_gravity="center"
                         android:layout_marginVertical="22dp"
                         android:layout_width="220dp"
                         android:layout_height="50dp"
                         android:background="@drawable/button_style"
-                        android:text="Update Medicine"
+                        android:text="Add Medicine"
                         android:textSize="16sp"
                         android:textColor="#fff"
                         android:textStyle="bold"/>
@@ -131,5 +149,4 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

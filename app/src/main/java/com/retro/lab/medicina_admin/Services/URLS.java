@@ -7,5 +7,4 @@ public class URLS {
     public static final String URL_GET_All_Medicines = ROOT_URL+"index";
     public static final String URL_GET_All_PHARMACIES = ROOT_URL+"index";
     public static final String URL_GET_All_USERS = ROOT_URL+"index";
-    public static final String URL_SEARCH = ROOT_URL+"search";
 }

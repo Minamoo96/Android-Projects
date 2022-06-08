@@ -71,7 +71,25 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         holder.mAddress.setText(Address);
         holder.mPrice.setText("Price: " + Price+" $");
 
+        holder.updateMed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext().getApplicationContext(), UpdateMedicineActivity.class);
+                intent.putExtra("Med_Name", Name);
+                intent.putExtra("Ph_Name", Pharmacy);
+                intent.putExtra("Ph_Address", Address);
+                intent.putExtra("Med_price", Price);
+                intent.putExtra("Med_Serial", Serial);
+                v.getContext().startActivity(intent);
+            }
+        });
 
+        holder.deleteMed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diagNew(v);
+            }
+        });
     }
 
     @Override
@@ -92,22 +110,7 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
             mAddress = itemView.findViewById(R.id.mAddress);
 
             updateMed = itemView.findViewById(R.id.updateMedicine);
-            deleteMed = itemView.findViewById(R.id.updateMedicine);
-
-            updateMed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    v.getContext().startActivity(new Intent(v.getContext().getApplicationContext(),
-                            UpdateMedicineActivity.class));
-                }
-            });
-
-            deleteMed.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    diagNew(v);
-                }
-            });
+            deleteMed = itemView.findViewById(R.id.deleteMedicine);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -125,10 +128,10 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
         alertDialogBuilder.setMessage("Are You Sure You Want To Delete This Field");
         alertDialogBuilder.setTitle("Delete Action");
-        alertDialogBuilder.setPositiveButton("أوافق", (arg0, arg1) -> {
+        alertDialogBuilder.setPositiveButton("Delete", (arg0, arg1) -> {
 
         });
-        alertDialogBuilder.setNegativeButton("لا أوافق", (dialog, which) -> {
+        alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
 
         });
         AlertDialog alertDialog = alertDialogBuilder.create();

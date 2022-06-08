@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.retro.lab.medicina_admin.Models.PharmacyModel;
 import com.retro.lab.medicina_admin.Models.UserModel;
 import com.retro.lab.medicina_admin.R;
+import com.retro.lab.medicina_admin.UpdateMedicineActivity;
 import com.retro.lab.medicina_admin.UpdatePharmacyActivity;
 
 import java.util.ArrayList;
@@ -66,6 +67,23 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Exampl
         holder.mPAddress.setText(Address);
         holder.mPSerial.setText(Serial);
 
+        holder.updatePhar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext().getApplicationContext(), UpdatePharmacyActivity.class);
+                intent.putExtra("Ph_Name", Name);
+                intent.putExtra("Ph_Address", Address);
+                intent.putExtra("Ph_Serial", Serial);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        holder.deletePhar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diagNew(v);
+            }
+        });
 
     }
 
@@ -88,20 +106,6 @@ public class PharmacyAdapter extends RecyclerView.Adapter<PharmacyAdapter.Exampl
             updatePhar = itemView.findViewById(R.id.updatePharmacy);
             deletePhar = itemView.findViewById(R.id.deletePharmacy);
 
-            updatePhar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    v.getContext().startActivity(new Intent(v.getContext().getApplicationContext(),
-                            UpdatePharmacyActivity.class));
-                }
-            });
-
-            deletePhar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    diagNew(v);
-                }
-            });
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
