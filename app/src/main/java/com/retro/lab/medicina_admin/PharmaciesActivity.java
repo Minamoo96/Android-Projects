@@ -19,8 +19,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.retro.lab.medicina_admin.Adapters.MedicinesAdapter;
 import com.retro.lab.medicina_admin.Adapters.PharmacyAdapter;
+import com.retro.lab.medicina_admin.Models.AdminModel;
 import com.retro.lab.medicina_admin.Models.MedicinesModel;
 import com.retro.lab.medicina_admin.Models.PharmacyModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -35,7 +37,7 @@ public class PharmaciesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AppCompatButton addPharmacy;
 
-    public   static PharmacyAdapter mExampleAdapter;
+    public  static PharmacyAdapter mExampleAdapter;
     public  static ArrayList<PharmacyModel> mExampleList;
 
     @Override
@@ -44,7 +46,9 @@ public class PharmaciesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pharmacies);
 
         adminName = findViewById(R.id.adminName1);
-        adminName.setText("Admin: Mohamed");
+        AdminModel adminModel = (AdminModel) SharedPref.getInstance(getApplicationContext()).getUser();
+        String name = adminModel.getUsername();
+        adminName.setText("Admin: " + name);
 
         recyclerView =findViewById(R.id.pharmaciesRecycler);
         recyclerView.setHasFixedSize(true);

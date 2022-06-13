@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -13,7 +14,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.retro.lab.medicina_admin.Adapters.UserAdapter;
+import com.retro.lab.medicina_admin.Models.AdminModel;
 import com.retro.lab.medicina_admin.Models.UserModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -32,6 +35,7 @@ public class UserShowActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_show);
+
 
         recyclerUser =findViewById(R.id.recyclerUser);
         recyclerUser.setHasFixedSize(true);

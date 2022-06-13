@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -21,9 +22,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
+import com.retro.lab.medicina_admin.Models.AdminModel;
 import com.retro.lab.medicina_admin.Models.MedicinesModel;
 import com.retro.lab.medicina_admin.Models.PharModel;
 import com.retro.lab.medicina_admin.Models.PharmacyModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -39,9 +42,7 @@ public class AddMedicineActivity extends AppCompatActivity {
 
     EditText medName, medPrice, medSerial;
     AppCompatButton saveMedicine;
-//    AutoCompleteTextView phName;
-    ArrayAdapter<String> model;
-
+    TextView admin;
 
     private ArrayList<PharModel> goodModelArrayList;
     private ArrayList<String> names = new ArrayList<String>();
@@ -52,7 +53,12 @@ public class AddMedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicine);
 
-//        data = new ArrayList<>();
+        admin = findViewById(R.id.adminName3);
+        AdminModel adminModel = (AdminModel) SharedPref.getInstance(getApplicationContext()).getUser();
+        String name = adminModel.getUsername();
+        admin.setText("Admin: " + name);
+
+
         medName = findViewById(R.id.medName);
         phName = findViewById(R.id.phName);
         medPrice = findViewById(R.id.medPrice);

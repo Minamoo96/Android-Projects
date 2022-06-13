@@ -147,7 +147,7 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         alertDialogBuilder.setTitle("Delete Action");
         alertDialogBuilder.setPositiveButton("Delete", (arg0, arg1) -> {
 
-
+            deleteMedicine(id);
 
         });
         alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {

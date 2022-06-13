@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -16,8 +17,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
+import com.retro.lab.medicina_admin.Models.AdminModel;
 import com.retro.lab.medicina_admin.Models.MedicinesModel;
 import com.retro.lab.medicina_admin.Models.PharmacyModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -29,12 +32,18 @@ import java.util.Map;
 public class AddPharmacyActivity extends AppCompatActivity {
 
     EditText pName, pAddress, pNumber, pSerial;
+    TextView admin;
     AppCompatButton savePharmacy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pharmacy);
+
+        admin = findViewById(R.id.adminName4);
+        AdminModel adminModel = (AdminModel) SharedPref.getInstance(getApplicationContext()).getUser();
+        String name = adminModel.getUsername();
+        admin.setText("Admin: " + name);
 
         pName = findViewById(R.id.pName);
         pAddress = findViewById(R.id.pAddress);

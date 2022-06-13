@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.retro.lab.medicina_admin.LoginActivity;
 import com.retro.lab.medicina_admin.MainActivity;
 import com.retro.lab.medicina_admin.Models.AdminModel;
 
@@ -61,7 +62,7 @@ public class SharedPref {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        mCtx.startActivity(new Intent(mCtx, MainActivity.class));
+        mCtx.startActivity(new Intent(mCtx, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
 }

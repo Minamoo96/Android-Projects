@@ -17,6 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.retro.lab.medicina_admin.Models.AdminModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -35,6 +37,7 @@ public class UpdatePharmacyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_pharmacy);
+
 
         ppName = findViewById(R.id.ppName);
         ppAddress = findViewById(R.id.ppAddress);

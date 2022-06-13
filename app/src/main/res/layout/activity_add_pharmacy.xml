@@ -15,6 +15,7 @@
         android:background="@drawable/view_down_style" />
 
     <TextView
+        android:id="@+id/adminName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Admin: "

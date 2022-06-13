@@ -16,7 +16,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.retro.lab.medicina_admin.Models.AdminModel;
 import com.retro.lab.medicina_admin.Models.PharmacyModel;
+import com.retro.lab.medicina_admin.Services.SharedPref;
 import com.retro.lab.medicina_admin.Services.URLS;
 import com.retro.lab.medicina_admin.Services.VolleySingleton;
 
@@ -28,13 +30,15 @@ import java.util.Map;
 public class UpdateMedicineActivity extends AppCompatActivity {
 
     EditText meddPrice;
-    TextView medName, phhname, phhAddress, meddSerial;
+    TextView medName, phhname, phhAddress, meddSerial, adminName;
     AppCompatButton updateMed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_medicine);
+
+
 
         medName = findViewById(R.id.meddName);
         meddPrice = findViewById(R.id.meddPrice);
