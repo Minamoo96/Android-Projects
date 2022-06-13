@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +35,8 @@ public class PharmaciesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AppCompatButton addPharmacy;
 
-    private PharmacyAdapter mExampleAdapter;
-    private ArrayList<PharmacyModel> mExampleList;
+    public   static PharmacyAdapter mExampleAdapter;
+    public  static ArrayList<PharmacyModel> mExampleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class PharmaciesActivity extends AppCompatActivity {
 
         mExampleList = new ArrayList<>();
 
-        mExampleAdapter = new PharmacyAdapter(this, mExampleList);
+        mExampleAdapter = new PharmacyAdapter(PharmaciesActivity.this, mExampleList);
         recyclerView.setAdapter(mExampleAdapter);
 
         getPharmacies();
@@ -66,17 +67,19 @@ public class PharmaciesActivity extends AppCompatActivity {
 
     }
 
-    private void getPharmacies() {
-
+    public void getPharmacies() {
+      mExampleList.clear();
         StringRequest request = new StringRequest(Request.Method.GET, URLS.URL_GET_All_PHARMACIES,new Response.Listener<String>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(String response) {
                 try {
+                    
                     JSONObject object = new JSONObject(response);
                     JSONArray jsonArray = object.getJSONArray("row");
 
                     Gson gson = new Gson();
-                    for (int i = 1; i < jsonArray.length(); i++) {
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonobject = jsonArray.getJSONObject(i);
                         PharmacyModel emg = gson.fromJson(jsonobject.toString(), PharmacyModel.class);
                         mExampleList.add(emg);

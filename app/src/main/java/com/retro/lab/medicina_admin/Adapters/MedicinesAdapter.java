@@ -9,16 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.retro.lab.medicina_admin.MedicinesActivity;
 import com.retro.lab.medicina_admin.Models.MedicinesModel;
+import com.retro.lab.medicina_admin.PharmaciesActivity;
 import com.retro.lab.medicina_admin.R;
+import com.retro.lab.medicina_admin.Services.URLS;
+import com.retro.lab.medicina_admin.Services.VolleySingleton;
 import com.retro.lab.medicina_admin.UpdateMedicineActivity;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.ExampleviewHolder> {
@@ -59,6 +74,7 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         MedicinesModel currentItem=mExamplelist.get(position);
 //        MediaModel mediaModel = mMediaList.get(position);
 
+        int id = currentItem.getId();
         String Name =currentItem.getName();
         String Price = currentItem.getPrice();
         String Pharmacy = currentItem.getPharmacy_name();
@@ -75,6 +91,7 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext().getApplicationContext(), UpdateMedicineActivity.class);
+                intent.putExtra("Med_id", id);
                 intent.putExtra("Med_Name", Name);
                 intent.putExtra("Ph_Name", Pharmacy);
                 intent.putExtra("Ph_Address", Address);
@@ -87,7 +104,7 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         holder.deleteMed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                diagNew(v);
+                diagNew(v, id);
             }
         });
     }
@@ -124,11 +141,13 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         }
     }
 
-    public void diagNew(View view){
+    public void diagNew(View view, int id){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
         alertDialogBuilder.setMessage("Are You Sure You Want To Delete This Field");
         alertDialogBuilder.setTitle("Delete Action");
         alertDialogBuilder.setPositiveButton("Delete", (arg0, arg1) -> {
+
+
 
         });
         alertDialogBuilder.setNegativeButton("Cancel", (dialog, which) -> {
@@ -136,6 +155,48 @@ public class MedicinesAdapter extends RecyclerView.Adapter<MedicinesAdapter.Exam
         });
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+
+    public void deleteMedicine(int id){
+
+        StringRequest request = new StringRequest(Request.Method.POST, URLS.URL_DELETE_MEDICINE, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    if (object.getBoolean("error")){
+                        Toast.makeText(mcontex.getApplicationContext(), "response: " + object.getString("message"), Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(mcontex.getApplicationContext(), "Response: "+object.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        if (mcontex instanceof MedicinesActivity){
+                            ((MedicinesActivity)mcontex).mExampleList.clear();
+                            ((MedicinesActivity)mcontex).mExampleAdapter.notifyDataSetChanged();
+                            ((MedicinesActivity)mcontex).getMedicines();
+                        }
+
+                    }
+                }catch (Exception exception){
+                    Toast.makeText(mcontex.getApplicationContext(), "Exception: " + exception, Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("id", String.valueOf(id));
+                return params;
+            }
+        };
+        VolleySingleton.getInstance(mcontex.getApplicationContext()).addToRequestQueue(request);
+
     }
 
 }

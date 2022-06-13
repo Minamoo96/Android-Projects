@@ -8,15 +8,18 @@ public class PharmacyModel {
     private int id;
     @SerializedName("pharmace_name")
     private String pharmace_name;
+    @SerializedName("phone_number")
+    private String number;
     @SerializedName("address")
     private String address;
     @SerializedName("serial_number")
     private String serial_number;
 
-    public PharmacyModel(int id, String name, String address, String serial_number){
+    public PharmacyModel(int id, String name, String number, String address, String serial_number){
 
         this.id = id;
         this.pharmace_name = name;
+        this.number = number;
         this.address = address;
         this.serial_number = serial_number;
 
@@ -37,6 +40,14 @@ public class PharmacyModel {
 
     public void setPharmace_name(String pharmace_name) {
         this.pharmace_name = pharmace_name;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getAddress() {

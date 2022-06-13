@@ -32,8 +32,8 @@ public class MedicinesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AppCompatButton addMedicine;
 
-    private MedicinesAdapter mExampleAdapter;
-    private ArrayList<MedicinesModel> mExampleList;
+    public static MedicinesAdapter mExampleAdapter;
+    public static ArrayList<MedicinesModel> mExampleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +70,14 @@ public class MedicinesActivity extends AppCompatActivity {
         StringRequest request = new StringRequest(Request.Method.GET, URLS.URL_GET_All_Medicines,new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                mExampleList.clear();
+                mExampleAdapter.notifyDataSetChanged();
                 try {
                     JSONObject object = new JSONObject(response);
                     JSONArray jsonArray = object.getJSONArray("row");
 
                     Gson gson = new Gson();
-                    for (int i = 1; i < jsonArray.length(); i++) {
+                    for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonobject = jsonArray.getJSONObject(i);
                         MedicinesModel emg = gson.fromJson(jsonobject.toString(), MedicinesModel.class);
                         mExampleList.add(emg);

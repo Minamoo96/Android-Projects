@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.retro.lab.medicina_admin.Services.SharedPref;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -16,8 +18,16 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                finish();
+
+                if(SharedPref.getInstance(getApplicationContext()).isLoggedIn()){
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
+                else {
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    finish();
+                }
+
             }
         },2000);
 

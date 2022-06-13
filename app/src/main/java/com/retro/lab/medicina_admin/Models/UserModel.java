@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserModel {
 
+    @SerializedName("id")
+    private int id;
     @SerializedName("username")
     private String username;
     @SerializedName("email")
@@ -11,14 +13,22 @@ public class UserModel {
     @SerializedName("phone")
     private String phone;
 
-    public UserModel(String username, String email, String phone){
+    public UserModel(int id, String username, String email, String phone){
 
+        this.id = id;
         this.username = username;
         this.email = email;
         this.phone = phone;
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

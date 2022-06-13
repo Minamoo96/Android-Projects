@@ -79,18 +79,37 @@
                         android:hint="Medicine Name"
                         android:padding="10dp"/>
 
-                    <EditText
+<!--                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView-->
+
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_width="290dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:textColor="@color/purple_700"-->
+<!--                        android:textColorHint="@color/hint"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:background="@drawable/edit_text_style_new"-->
+<!--                        android:hint="Pharmacy Name"-->
+<!--                        android:padding="10dp"-->
+<!--                        style="@style/TextAppearance.AppCompat.Widget.DropDownItem"/>-->
+                    <Spinner
                         android:id="@+id/phName"
-                        android:layout_marginTop="10dp"
                         android:layout_width="290dp"
                         android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/purple_700"
-                        android:textColorHint="@color/hint"
-                        android:textSize="16sp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
                         android:background="@drawable/edit_text_style_new"
-                        android:hint="Pharmacy Name"
-                        android:padding="10dp"/>
+                        android:spinnerMode="dropdown"/>
+
+<!--                    <AutoCompleteTextView-->
+<!--                        android:id="@+id/phName"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignLeft="@+id/textView2"-->
+<!--                        android:layout_below="@+id/textView2"-->
+<!--                        android:layout_marginTop="54dp"-->
+<!--                        android:ems="10" />-->
 
                     <EditText
                         android:id="@+id/medPrice"
@@ -105,18 +124,6 @@
                         android:hint="Medicine Price"
                         android:padding="10dp"/>
 
-                    <EditText
-                        android:id="@+id/phAddress"
-                        android:layout_marginTop="10dp"
-                        android:layout_width="290dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/purple_700"
-                        android:textColorHint="@color/hint"
-                        android:textSize="16sp"
-                        android:background="@drawable/edit_text_style_new"
-                        android:hint="Pharmacy Address"
-                        android:padding="10dp"/>
 
                     <EditText
                         android:id="@+id/medSerial"

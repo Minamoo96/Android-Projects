@@ -120,7 +120,7 @@
                         android:layout_width="220dp"
                         android:layout_height="50dp"
                         android:background="@drawable/button_style"
-                        android:text="Update Medicine"
+                        android:text="Update Pharmacy"
                         android:textSize="16sp"
                         android:textColor="#fff"
                         android:textStyle="bold"/>
